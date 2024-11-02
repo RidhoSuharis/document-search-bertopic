@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Documents</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Document Search</h1>
+    <h1>Using BERTopic</h1>
+    
+    <div id="search-document-container">
+      <div id="search-document-area">
+        <input type="text" id="query" placeholder="Search documents...">
+        <button id="search-btn">Search</button>
+      </div>
+    </div>
+
+    <div id="results-container">
+        <div id="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('search-btn').addEventListener('click', function() {
+            const query = document.getElementById('query').value;
+
+            // Tampilkan results-container ketika pencarian dilakukan
+            const resultsContainer = document.getElementById('results-container');
+            resultsContainer.style.display = 'flex';
+
+            fetch(`/search?query=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    const resultsDiv = document.getElementById('results');
+                    resultsDiv.innerHTML = '';
+
+                    data.results.forEach(result => {
+                        const docElement = document.createElement('div');
+                        docElement.innerHTML = `<p>${result.document} (Topic: ${result.topic}) <button onclick="getVocab(${result.topic_id})">Show Vocab</button></p>`;
+                        resultsDiv.appendChild(docElement);
+                    });
+                });
+        });
+
+        function getVocab(topicId) {
+            fetch(`/vocab?topic_id=${topicId}`)
+                .then(response => response.json())
+                .then(data => {
+                    alert(`Vocabulary for topic ${topicId}: ${data.words.map(word => word[0]).join(', ')}`);
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    background-image: url('/static/back_ground_search_document.jpg'); /* Ganti dengan path ke gambar latar belakang */
+    background-size: cover; /* Menyesuaikan ukuran gambar latar belakang */
+    background-position: center; /* Menempatkan gambar di tengah */
+}
+
+#results-container{
+    display: none;
+    justify-content: center;
+}
+
+#results{
+    background-color: white;
+    margin: 30px;
+    padding: 20px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+#search-document-container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+#search-document-area {
+    background-color: white; /* Warna latar belakang area pencarian */
+    border-radius: 24px; /* Sudut membulat */
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
+    padding: 10px 20px; /* Ruang di dalam area pencarian */
+    display: flex; /* Flexbox untuk penataan */
+    align-items: center; /* Pusatkan item di dalam flex container */
+    max-width: 600px; /* Lebar maksimum area pencarian */
+    width: 100%; /* Lebar penuh pada perangkat kecil */
+}
+
+#query {
+    border: none; /* Garis batas */
+    width: 100%; /* Lebar penuh input */
+    margin-right: 10px; /* Jarak antara input dan tombol */
+    font-size: 16px; /* Ukuran font */
+}
+
+#search-btn {
+    background-color: #007bff; /* Warna tombol */
+    color: white; /* Warna teks tombol */
+    border: none; /* Hilangkan garis batas */
+    border-radius: 20px; /* Sudut membulat tombol */
+    padding: 10px 20px; /* Ruang di dalam tombol */
+    cursor: pointer; /* Menunjukkan pointer saat hover */
+    font-size: 16px; /* Ukuran font tombol */
+    transition: background-color 0.3s; /* Transisi halus untuk hover */
+}
+
+#search-btn:hover {
+    background-color: #0056b3; /* Warna saat hover */
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 4em;
+}
+
+button {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #357ab8;
+}
+
+.results {
+    margin-top: 20px;
+}
+
+.results ul {
+    list-style: none;
+    padding: 0;
+}
+
+.results li {
+    background: #eef;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input {
+    all: unset; /* Menghapus semua gaya default */
+    /* Kemudian tambahkan gaya Anda sendiri */
+    display: inline-block; /* Menampilkan elemen inline-block */
+    padding: 10px; /* Menambahkan padding */
+    border: 2px solid #007bff; /* Menambahkan border */
+    border-radius: 5px; /* Membuat sudut border melengkung */
+    outline: none; /* Menghilangkan outline saat fokus */
+    width: 100%; /* Memungkinkan input mengisi ruang yang tersedia */
+    box-sizing: border-box; /* Memastikan padding dan border termasuk dalam lebar */
+    transition: border-color 0.3s; /* Transisi untuk border */
+}
+
+
+input[type="text"]:focus {
+  border: none;
+}
